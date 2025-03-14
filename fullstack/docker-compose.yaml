@@ -1,17 +1,4 @@
 services:
-  api:
-    container_name: api
-    build:
-      context: ./api
-      dockerfile: Dockerfile
-    ports:
-      - "5005:5005"
-    env_file:
-      - .env
-    volumes:
-      - ./api:/home
-    networks:
-      - chatbot-net
 
   ollama:
     container_name: ollama
@@ -25,6 +12,22 @@ services:
     networks:
       - chatbot-net
     entrypoint: [ "/usr/bin/bash", "pull-llama3.sh" ]
+
+  api:
+    container_name: api
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "5005:5005"
+    env_file:
+      - .env
+    depends_on:
+      - ollama
+    volumes:
+      - ./api:/home
+    networks:
+      - chatbot-net
 
 networks:
   chatbot-net:
