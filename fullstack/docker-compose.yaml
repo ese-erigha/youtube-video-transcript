@@ -1,0 +1,35 @@
+services:
+  api:
+    container_name: api
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "5005:5005"
+    env_file:
+      - .env
+    volumes:
+      - ./api:/home
+    networks:
+      - chatbot-net
+
+  ollama:
+    container_name: ollama
+    build:
+      context: ./ollama
+      dockerfile: Dockerfile
+    ports:
+      - "11434:11434"
+    volumes:
+      - chatbot-vol:/ollama
+    networks:
+      - chatbot-net
+    entrypoint: [ "/usr/bin/bash", "pull-llama3.sh" ]
+
+networks:
+  chatbot-net:
+    driver: bridge
+
+volumes:
+  chatbot-vol:
+    driver: local
