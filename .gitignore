@@ -1,7 +1,8 @@
-/backend/api/venv
-/backend/api/.idea
-/backend/.idea
-/backend/api/__pycache__
-/backend/api/.env
+/app/api/venv
+/app/api/.idea
+/app/.idea
+/app/api/__pycache__
+/app/api/.env
+/app/web
 .idea
 **.DS_Store
