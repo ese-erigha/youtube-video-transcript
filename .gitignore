@@ -1,5 +1,7 @@
-/fullstack/api/venv
-/fullstack/api/.idea
-/fullstack/.idea
-/fullstack/api/__pycache__
-/fullstack/api/.env
+/backend/api/venv
+/backend/api/.idea
+/backend/.idea
+/backend/api/__pycache__
+/backend/api/.env
+.idea
+**.DS_Store
