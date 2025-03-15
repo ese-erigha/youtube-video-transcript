@@ -1,5 +1,4 @@
 services:
-
   ollama:
     container_name: ollama
     build:
@@ -11,7 +10,7 @@ services:
       - chatbot-vol:/ollama
     networks:
       - chatbot-net
-    entrypoint: [ "/usr/bin/bash", "pull-llama3.sh" ]
+    entrypoint: ["/usr/bin/bash", "pull-llama3.sh"]
 
   api:
     container_name: api
@@ -21,7 +20,7 @@ services:
     ports:
       - "5005:5005"
     env_file:
-      - .env
+      - ./api/.env
     depends_on:
       - ollama
     volumes:
