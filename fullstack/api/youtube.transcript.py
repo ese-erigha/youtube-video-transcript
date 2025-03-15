@@ -8,13 +8,13 @@ from typing import Optional
 import re
 
 
-class YouTubeSummarizer:
-    def __init__(self):
+class YoutubeSummarizer:
+    def __init__(self, base_url: str):
         """
         Initialize the YouTube Summarizer
         """
 
-        self.llm = ChatOllama(temperature=0, model="llama3.2")
+        self.llm = ChatOllama(temperature=0, model="llama3.2", base_url=base_url)
 
         self.text_splitter = RecursiveCharacterTextSplitter(
             chunk_size=10000,
@@ -181,7 +181,7 @@ class YouTubeSummarizer:
 
 def main():
     # Initialize summarizer
-    summarizer = YouTubeSummarizer()
+    summarizer = YoutubeSummarizer(base_url="http://localhost:11434/api/generate")
 
     # Example YouTube video URL
     video_url = "https://youtu.be/6K3wiD6ACWg?si=WYbngXId1RW28ADr"
