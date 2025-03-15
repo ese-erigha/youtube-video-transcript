@@ -1,5 +1,5 @@
-/fullstack/api/venv
-/fullstack/api/.idea
-/fullstack/.idea
-/fullstack/api/__pycache__
-fullstack/.env
+/app/api/venv
+/app/api/.idea
+/app/.idea
+/app/api/__pycache__
+app/.env
