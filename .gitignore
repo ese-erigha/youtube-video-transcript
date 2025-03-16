@@ -4,5 +4,7 @@
 /app/api/__pycache__
 /app/api/.env
 /app/web/node_modules
+/app/web/.next
+/app/web/.env
 .idea
 **.DS_Store

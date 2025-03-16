@@ -46,7 +46,8 @@ class GetTranscriptsUsecase:
         try:
 
             transcript_list = YouTubeTranscriptApi.get_transcript(video_id)
-            return [TranscriptDto(text=transcript["text"], timestamp=str(transcript["start"])) for transcript in
+            return [TranscriptDto(text=transcript["text"], timestamp=str(transcript["start"])) for
+                    transcript in
                     transcript_list]
         except Exception as e:
             raise Exception(f"Error getting transcripts: {str(e)}")
