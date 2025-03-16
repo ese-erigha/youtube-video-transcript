@@ -3,5 +3,6 @@
 /app/.idea
 /app/api/__pycache__
 /app/api/.env
+/app/web/node_modules
 .idea
 **.DS_Store
