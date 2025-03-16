@@ -2,7 +2,7 @@ from fastapi import HTTPException
 from youtube_transcript_api import YouTubeTranscriptApi
 from typing import Optional
 import re
-from .transcript_response_dto import Transcript
+from .transcript_response_dto import TranscriptDto
 
 
 class GetTranscriptsUsecase:
@@ -29,7 +29,7 @@ class GetTranscriptsUsecase:
         return None
 
     @staticmethod
-    def execute(video_url) -> list[Transcript]:
+    def execute(video_url) -> list[TranscriptDto]:
         """
             Get the list of transcript of a YouTube video
 
@@ -46,6 +46,7 @@ class GetTranscriptsUsecase:
         try:
 
             transcript_list = YouTubeTranscriptApi.get_transcript(video_id)
-            return transcript_list
+            return [TranscriptDto(text=transcript["text"], timestamp=str(transcript["start"])) for transcript in
+                    transcript_list]
         except Exception as e:
             raise Exception(f"Error getting transcripts: {str(e)}")

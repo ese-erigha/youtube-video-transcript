@@ -7,8 +7,13 @@ class Transcript(BaseModel):
     duration: float
 
 
+class TranscriptDto(BaseModel):
+    text: str
+    timestamp: str
+
+
 class GetTranscriptsResponseDto(BaseModel):
-    transcripts: list[Transcript]
+    transcripts: list[TranscriptDto]
 
 
 class SummarizeTranscriptResponseDto(BaseModel):
